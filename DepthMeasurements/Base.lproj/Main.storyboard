@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,104 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DepthMeasurements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Fy-rO-9oT">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-cX-jHH">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GfE-sh-RFe">
+                                                <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="42"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="textfieldValueChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Tmf-fI-pHZ"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXD-3u-NyN">
+                                                <rect key="frame" x="166.66666666666663" y="0.0" width="166.33333333333337" height="42"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="textfieldValueChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="yNf-Hd-WGh"/>
+                                                </connections>
+                                            </textField>
+                                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="currentPosition" highlightedImage="currentPositionActive" translatesAutoresizingMaskIntoConstraints="NO" id="zbR-Yc-WMm">
+                                                <rect key="frame" x="333" y="0.0" width="42" height="42"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="uWy-R9-rq8" appends="YES" id="Rro-Tw-doj"/>
+                                                </connections>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="FXD-3u-NyN" firstAttribute="height" secondItem="GfE-sh-RFe" secondAttribute="height" id="N50-8V-qaC"/>
+                                            <constraint firstItem="zbR-Yc-WMm" firstAttribute="height" secondItem="GfE-sh-RFe" secondAttribute="height" id="VBg-zE-1ag"/>
+                                            <constraint firstItem="FXD-3u-NyN" firstAttribute="width" secondItem="GfE-sh-RFe" secondAttribute="width" id="l9e-Xf-Tli"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5u-Vt-gsz">
+                                        <rect key="frame" x="0.0" y="42" width="375" height="692"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Depth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-cE-ldT">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="692"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                <connections>
+                                                    <action selector="textfieldValueChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="78D-1t-ahn"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rP-rD-AH2">
+                                                <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="692"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qft-It-tZy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="3rP-rD-AH2" firstAttribute="width" secondItem="Jnm-cE-ldT" secondAttribute="width" id="RNt-ur-OS0"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Fy-rO-9oT" secondAttribute="trailing" id="2Nb-e5-P5m"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4Fy-rO-9oT" secondAttribute="bottom" id="HYw-3D-aEE"/>
+                            <constraint firstItem="4Fy-rO-9oT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PJt-X5-MR2"/>
+                            <constraint firstItem="4Fy-rO-9oT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eZc-JF-ZFB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="currentPositionButton" destination="zbR-Yc-WMm" id="PHf-tf-D16"/>
+                        <outlet property="depth" destination="Jnm-cE-ldT" id="tMK-z6-Mmk"/>
+                        <outlet property="latitude" destination="GfE-sh-RFe" id="iZk-1d-uWT"/>
+                        <outlet property="longitude" destination="FXD-3u-NyN" id="csz-re-gnr"/>
+                        <outlet property="saveButton" destination="3rP-rD-AH2" id="gCb-Sc-Tcx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uWy-R9-rq8">
+                    <connections>
+                        <action selector="currentLocationClicked:" destination="BYZ-38-t0r" id="wPO-t7-10F"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="currentPosition" width="42" height="42"/>
+        <image name="currentPositionActive" width="42" height="42"/>
+    </resources>
 </document>

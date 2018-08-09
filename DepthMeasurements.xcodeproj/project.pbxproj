@@ -14,6 +14,8 @@
 		4F96462A211C11AC00114B03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F964628211C11AC00114B03 /* LaunchScreen.storyboard */; };
 		4F964635211C11AC00114B03 /* DepthMeasurementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F964634211C11AC00114B03 /* DepthMeasurementsTests.swift */; };
 		4F964640211C11AC00114B03 /* DepthMeasurementsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F96463F211C11AC00114B03 /* DepthMeasurementsUITests.swift */; };
+		4F96464F211C210D00114B03 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F96464E211C210D00114B03 /* CoreLocation.framework */; };
+		4F964651211C31B000114B03 /* MeasurementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F964650211C31B000114B03 /* MeasurementsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		4F96463B211C11AC00114B03 /* DepthMeasurementsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DepthMeasurementsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F96463F211C11AC00114B03 /* DepthMeasurementsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthMeasurementsUITests.swift; sourceTree = "<group>"; };
 		4F964641211C11AC00114B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F96464E211C210D00114B03 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4F964650211C31B000114B03 /* MeasurementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F96464F211C210D00114B03 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 				4F964633211C11AC00114B03 /* DepthMeasurementsTests */,
 				4F96463E211C11AC00114B03 /* DepthMeasurementsUITests */,
 				4F96461D211C11AB00114B03 /* Products */,
+				4F96464D211C210D00114B03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +109,7 @@
 				4F964626211C11AC00114B03 /* Assets.xcassets */,
 				4F964628211C11AC00114B03 /* LaunchScreen.storyboard */,
 				4F96462B211C11AC00114B03 /* Info.plist */,
+				4F964650211C31B000114B03 /* MeasurementsModel.swift */,
 			);
 			path = DepthMeasurements;
 			sourceTree = "<group>";
@@ -123,6 +130,14 @@
 				4F964641211C11AC00114B03 /* Info.plist */,
 			);
 			path = DepthMeasurementsUITests;
+			sourceTree = "<group>";
+		};
+		4F96464D211C210D00114B03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F96464E211C210D00114B03 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F964651211C31B000114B03 /* MeasurementsModel.swift in Sources */,
 				4F964622211C11AB00114B03 /* ViewController.swift in Sources */,
 				4F964620211C11AB00114B03 /* AppDelegate.swift in Sources */,
 			);
