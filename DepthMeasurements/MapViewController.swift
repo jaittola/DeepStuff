@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  DepthMeasurements
 //
 //  Created by Jukka Aittola on 09/08/2018.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var latitude: UITextField!
     @IBOutlet weak var longitude: UITextField!
