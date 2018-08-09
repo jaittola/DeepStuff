@@ -29,7 +29,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Fy-rO-9oT">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoQ-py-hUG">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoQ-py-hUG">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="662"/>
                                     </mapView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-cX-jHH">
@@ -108,6 +108,7 @@
                         <outlet property="depth" destination="Jnm-cE-ldT" id="tMK-z6-Mmk"/>
                         <outlet property="latitude" destination="GfE-sh-RFe" id="iZk-1d-uWT"/>
                         <outlet property="longitude" destination="FXD-3u-NyN" id="csz-re-gnr"/>
+                        <outlet property="mapView" destination="WoQ-py-hUG" id="q0V-q6-SHc"/>
                         <outlet property="saveButton" destination="3rP-rD-AH2" id="gCb-Sc-Tcx"/>
                     </connections>
                 </viewController>

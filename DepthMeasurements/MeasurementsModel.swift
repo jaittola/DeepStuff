@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct Measurement {
     let latitude: Double
@@ -41,6 +42,22 @@ struct Measurement {
 
     func toString() -> String {
         return "\(latitude) \(longitude) \(depth)"
+    }
+}
+
+class MeasurementMKAnnotation: NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(measurement.latitude, measurement.longitude)
+    }
+
+    var title: String? {
+        return "\(measurement.depth) m"
+    }
+
+    var measurement: Measurement
+
+    init(_ measurement: Measurement) {
+        self.measurement = measurement
     }
 }
 

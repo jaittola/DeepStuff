@@ -8,15 +8,17 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var latitude: UITextField!
     @IBOutlet weak var longitude: UITextField!
     @IBOutlet weak var depth: UITextField!
     @IBOutlet weak var currentPositionButton: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
-    
+    @IBOutlet weak var mapView: MKMapView!
+
     var locationManager: CLLocationManager? = nil
     var locationInUse: Bool = false
     
@@ -25,6 +27,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        mapView.delegate = self
+        mapView.showsScale = true
+        mapView.userTrackingMode = .follow
+
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            mapView.addAnnotations(appDelegate.depths.values.map { (m: Measurement) in MeasurementMKAnnotation(m) } )
+        }
+
         setupLocationManager()
         updateMeasurement()
     }
@@ -74,6 +84,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             if let measurement = currentMeasurement {
                 appDelegate.depths.add(measurement)
+                mapView.addAnnotation(MeasurementMKAnnotation(measurement))
             }
         }
     }
@@ -102,11 +113,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if let location = locations.last {
             latitude.text = String(location.coordinate.latitude)
             longitude.text = String(location.coordinate.longitude)
+            mapView.setCenter(location.coordinate, animated: true)
         } else {
             latitude.text = ""
             longitude.text = ""
         }
         updateMeasurement()
+    }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let v = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        v.markerTintColor = UIColor.red
+        v.titleVisibility = .visible
+        /*
+        if let m = annotation as? Measurement {
+            v.glyphText = String(m.depth)
+        }
+ */
+        return v
     }
 
     func updateMeasurement() {
