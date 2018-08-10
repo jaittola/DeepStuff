@@ -29,14 +29,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Fy-rO-9oT">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoQ-py-hUG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="662"/>
-                                    </mapView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-cX-jHH">
-                                        <rect key="frame" x="0.0" y="662" width="375" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GfE-sh-RFe">
-                                                <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="42"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="36"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -45,7 +42,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXD-3u-NyN">
-                                                <rect key="frame" x="166.66666666666663" y="0.0" width="166.33333333333337" height="42"/>
+                                                <rect key="frame" x="166.66666666666663" y="0.0" width="166.33333333333337" height="36"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -54,7 +51,7 @@
                                                 </connections>
                                             </textField>
                                             <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="currentPosition" highlightedImage="currentPositionActive" translatesAutoresizingMaskIntoConstraints="NO" id="zbR-Yc-WMm">
-                                                <rect key="frame" x="333" y="0.0" width="42" height="42"/>
+                                                <rect key="frame" x="333" y="0.0" width="42" height="36"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="uWy-R9-rq8" appends="YES" id="Rro-Tw-doj"/>
@@ -68,10 +65,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5u-Vt-gsz">
-                                        <rect key="frame" x="0.0" y="704" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="36" width="375" height="36"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Depth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-cE-ldT">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="36"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -80,7 +77,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rP-rD-AH2">
-                                                <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="30"/>
+                                                <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="36"/>
                                                 <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="saveClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qft-It-tZy"/>
@@ -91,7 +88,13 @@
                                             <constraint firstItem="3rP-rD-AH2" firstAttribute="width" secondItem="Jnm-cE-ldT" secondAttribute="width" id="RNt-ur-OS0"/>
                                         </constraints>
                                     </stackView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoQ-py-hUG">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="662"/>
+                                    </mapView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="s5u-Vt-gsz" firstAttribute="height" secondItem="IyY-cX-jHH" secondAttribute="height" id="TL5-vR-GpQ"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,6 +122,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="566" y="35"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oUs-QN-Dgo">
