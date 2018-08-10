@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var latitude: UITextField!
     @IBOutlet weak var longitude: UITextField!
@@ -18,6 +18,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBOutlet weak var currentPositionButton: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapPanRegognizer: UIPanGestureRecognizer!
 
     var locationManager: CLLocationManager? = nil
     var locationInUse: Bool = false
@@ -31,6 +32,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.showsScale = true
         mapView.userTrackingMode = .follow
 
+        mapPanRegognizer.delegate = self
+
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             mapView.addAnnotations(appDelegate.depths.values.map { (m: Measurement) in MeasurementMKAnnotation(m) } )
         }
@@ -40,12 +43,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     func setupLocationManager() {
-        locationInUse = false
-        currentPositionButton.isHighlighted = false
-        
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        updateCurrentLocationTracking(isInUse: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,8 +55,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     @IBAction func currentLocationClicked(_ sender: UITapGestureRecognizer) {
-        locationInUse = !locationInUse
-        print("current location clicked. Location in use \(locationInUse)")
+        dismissKeyboard()
+        updateCurrentLocationTracking(isInUse: !locationInUse)
+    }
+
+    func updateCurrentLocationTracking(isInUse: Bool) {
+        if (isInUse == locationInUse) {
+            return
+        }
+
+        locationInUse = isInUse
+        print("Updating location tracking. Location in use \(locationInUse)")
         if locationInUse {
             switch CLLocationManager.authorizationStatus() {
             case .notDetermined:
@@ -91,6 +101,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
     @IBAction func textfieldValueChanged(_ sender: UITextField) {
         updateMeasurement()
+    }
+
+    @IBAction func mapPanned(_ sender: UIPanGestureRecognizer) {
+        print("Map panned, state \(sender.state)")
+        if (sender.state == .ended) {
+            updateCurrentLocationTracking(isInUse: false)
+            view.endEditing(true)
+        }
+    }
+
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -131,6 +153,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
  */
         return v
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 
     func updateMeasurement() {

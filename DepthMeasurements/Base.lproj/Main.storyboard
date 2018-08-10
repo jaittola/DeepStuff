@@ -90,6 +90,10 @@
                                     </stackView>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoQ-py-hUG">
                                         <rect key="frame" x="0.0" y="72" width="375" height="662"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="7Ad-yI-esj" appends="YES" id="Daa-2z-4w4"/>
+                                        </connections>
                                     </mapView>
                                 </subviews>
                                 <constraints>
@@ -111,6 +115,7 @@
                         <outlet property="depth" destination="Jnm-cE-ldT" id="tMK-z6-Mmk"/>
                         <outlet property="latitude" destination="GfE-sh-RFe" id="iZk-1d-uWT"/>
                         <outlet property="longitude" destination="FXD-3u-NyN" id="csz-re-gnr"/>
+                        <outlet property="mapPanRegognizer" destination="7Ad-yI-esj" id="YyM-hA-b5s"/>
                         <outlet property="mapView" destination="WoQ-py-hUG" id="q0V-q6-SHc"/>
                         <outlet property="saveButton" destination="3rP-rD-AH2" id="gCb-Sc-Tcx"/>
                     </connections>
@@ -121,6 +126,11 @@
                         <action selector="currentLocationClicked:" destination="BYZ-38-t0r" id="wPO-t7-10F"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="7Ad-yI-esj">
+                    <connections>
+                        <action selector="mapPanned:" destination="BYZ-38-t0r" id="6mN-RG-4OM"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="566" y="35"/>
         </scene>
