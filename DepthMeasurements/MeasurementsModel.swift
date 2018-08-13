@@ -61,18 +61,25 @@ class MeasurementMKAnnotation: NSObject, MKAnnotation {
     }
 }
 
+protocol MeasurementsDelegate {
+    func onUpdated(index: Int)
+}
+
 class Measurements {
     private var measurements = Array<Measurement>()
     
     var values: [Measurement] {
         return measurements
     }
-    
+
+    var delegate: MeasurementsDelegate? = nil
+
     func add(_ measurement: Measurement) {
         measurements.append(measurement)
         print("Measuremens after append: ",
               measurements.map { (m: Measurement) in m.toString()
             }.joined(separator: "\n")
         )
+        delegate?.onUpdated(index: measurements.count - 1)
     }
 }
