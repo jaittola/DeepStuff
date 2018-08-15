@@ -135,7 +135,7 @@
             </objects>
             <point key="canvasLocation" x="566" y="35"/>
         </scene>
-        <!--Measurement Table View Controller-->
+        <!--Measurements-->
         <scene sceneID="fMy-SO-2k2">
             <objects>
                 <tableViewController storyboardIdentifier="MeasurementTableViewController" id="jlr-B2-70t" customClass="MeasurementTableViewController" customModule="DepthMeasurements" customModuleProvider="target" sceneMemberID="viewController">
@@ -200,6 +200,7 @@
                                     <outlet property="depthLabel" destination="nzw-It-bbh" id="Ttk-is-EXl"/>
                                     <outlet property="latitudeLabel" destination="9cE-tS-1W6" id="ZBz-fB-lfl"/>
                                     <outlet property="longitudeLabel" destination="7SR-L7-47e" id="qLQ-Tz-0C2"/>
+                                    <segue destination="cMa-bm-0dg" kind="show" identifier="ShowDetail" id="U7f-Fh-ezs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -208,14 +209,137 @@
                             <outlet property="delegate" destination="jlr-B2-70t" id="gP8-nh-fa1"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Measurements" id="rKH-zd-kNI"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRe-vR-2bf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2295.1999999999998" y="34.729064039408868"/>
+        </scene>
+        <!--Measurement Edit View Controller-->
+        <scene sceneID="UQa-J5-Ysm">
+            <objects>
+                <viewController storyboardIdentifier="MeasurementEditViewController" title="Measurement Edit View Controller" id="cMa-bm-0dg" customClass="MeasurementEditViewController" customModule="DepthMeasurements" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZDe-IM-OXH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tu6-dj-9Z8">
+                                <rect key="frame" x="0.0" y="238" width="375" height="540"/>
+                                <items>
+                                    <barButtonItem title="Delete" id="ftU-rm-6cY">
+                                        <connections>
+                                            <action selector="deleteClicked:" destination="cMa-bm-0dg" id="H9f-dy-MaY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="c53-P9-7VV"/>
+                                </items>
+                            </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2dn-aF-SVv">
+                                <rect key="frame" x="0.0" y="88" width="375" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cu-Ge-SRI">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0P-w7-7rz">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nqb-JV-w2T">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Nqb-JV-w2T" firstAttribute="height" secondItem="6cu-Ge-SRI" secondAttribute="height" id="4bU-y9-dtT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nqb-JV-w2T" secondAttribute="trailing" id="Aa0-WY-Gj8"/>
+                                    <constraint firstAttribute="trailing" secondItem="6cu-Ge-SRI" secondAttribute="trailing" id="Bwh-kR-nVZ"/>
+                                    <constraint firstItem="6cu-Ge-SRI" firstAttribute="leading" secondItem="2dn-aF-SVv" secondAttribute="leading" id="D7M-l3-Ceo"/>
+                                    <constraint firstItem="Nqb-JV-w2T" firstAttribute="leading" secondItem="2dn-aF-SVv" secondAttribute="leading" id="Tu5-Wf-2n7"/>
+                                    <constraint firstItem="r0P-w7-7rz" firstAttribute="leading" secondItem="2dn-aF-SVv" secondAttribute="leading" id="X2o-xJ-4xi"/>
+                                    <constraint firstAttribute="trailing" secondItem="r0P-w7-7rz" secondAttribute="trailing" id="bAy-8q-SXW"/>
+                                    <constraint firstItem="r0P-w7-7rz" firstAttribute="height" secondItem="6cu-Ge-SRI" secondAttribute="height" id="wez-56-s3g"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2dn-aF-SVv" firstAttribute="leading" secondItem="X0l-V2-2oR" secondAttribute="leading" id="1ph-Ek-6mF"/>
+                            <constraint firstItem="Tu6-dj-9Z8" firstAttribute="trailing" secondItem="X0l-V2-2oR" secondAttribute="trailing" id="2o8-v2-eUb"/>
+                            <constraint firstItem="2dn-aF-SVv" firstAttribute="top" secondItem="X0l-V2-2oR" secondAttribute="top" id="BFe-Fb-Fvn"/>
+                            <constraint firstItem="X0l-V2-2oR" firstAttribute="trailing" secondItem="2dn-aF-SVv" secondAttribute="trailing" id="Mbr-XO-lWO"/>
+                            <constraint firstItem="Tu6-dj-9Z8" firstAttribute="bottom" secondItem="X0l-V2-2oR" secondAttribute="bottom" id="Ppz-bC-xab"/>
+                            <constraint firstItem="Tu6-dj-9Z8" firstAttribute="top" secondItem="2dn-aF-SVv" secondAttribute="bottom" id="oL2-eZ-o9N"/>
+                            <constraint firstItem="Tu6-dj-9Z8" firstAttribute="leading" secondItem="X0l-V2-2oR" secondAttribute="leading" id="s8e-XQ-S7Y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="X0l-V2-2oR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit" id="Lue-9c-j3C">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="SMI-Vs-Quf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="9eG-WR-PZM">
+                            <connections>
+                                <action selector="saveClicked:" destination="cMa-bm-0dg" id="mKE-SL-K43"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="depth" destination="Nqb-JV-w2T" id="bWV-Id-64l"/>
+                        <outlet property="latitude" destination="6cu-Ge-SRI" id="Met-je-BDH"/>
+                        <outlet property="longitude" destination="r0P-w7-7rz" id="yLV-rg-tUC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EGe-th-hcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4060" y="27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="w72-Tn-DxV">
+            <objects>
+                <navigationController storyboardIdentifier="MeasurementNavigation" automaticallyAdjustsScrollViewInsets="NO" id="hRc-3f-cAg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wNb-8L-z61">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jlr-B2-70t" kind="relationship" relationship="rootViewController" id="V2F-L0-W5j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jWP-mx-3VU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="1352.8" y="34.729064039408868"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YMr-VK-jrP">
+            <objects>
+                <navigationController storyboardIdentifier="EditNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Aw4-Lu-RUM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wpG-Zl-xcE">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cMa-bm-0dg" kind="relationship" relationship="rootViewController" id="eYa-hk-0ul"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfc-MG-GSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3114" y="385"/>
         </scene>
     </scenes>
     <resources>
         <image name="currentPosition" width="42" height="42"/>
         <image name="currentPositionActive" width="42" height="42"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eYa-hk-0ul"/>
+    </inferredMetricsTieBreakers>
 </document>

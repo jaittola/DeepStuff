@@ -16,6 +16,7 @@
 		4F964640211C11AC00114B03 /* DepthMeasurementsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F96463F211C11AC00114B03 /* DepthMeasurementsUITests.swift */; };
 		4F96464F211C210D00114B03 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F96464E211C210D00114B03 /* CoreLocation.framework */; };
 		4F964651211C31B000114B03 /* MeasurementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F964650211C31B000114B03 /* MeasurementsModel.swift */; };
+		4FBC7DEB212430430029DB7B /* MeasurementEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC7DEA212430430029DB7B /* MeasurementEditViewController.swift */; };
 		4FC817A9211C5D1A006B6ECD /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC817A8211C5D1A006B6ECD /* PagesViewController.swift */; };
 		4FEA6334212163C400E33AE9 /* MeasurementTableRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA6333212163C400E33AE9 /* MeasurementTableRowTableViewCell.swift */; };
 		4FEA633621216FD800E33AE9 /* MeasurementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA633521216FD800E33AE9 /* MeasurementTableViewController.swift */; };
@@ -54,6 +55,7 @@
 		4F964641211C11AC00114B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F96464E211C210D00114B03 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4F964650211C31B000114B03 /* MeasurementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsModel.swift; sourceTree = "<group>"; };
+		4FBC7DEA212430430029DB7B /* MeasurementEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementEditViewController.swift; sourceTree = "<group>"; };
 		4FC817A8211C5D1A006B6ECD /* PagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
 		4FEA6333212163C400E33AE9 /* MeasurementTableRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementTableRowTableViewCell.swift; sourceTree = "<group>"; };
 		4FEA633521216FD800E33AE9 /* MeasurementTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementTableViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				4FEA6333212163C400E33AE9 /* MeasurementTableRowTableViewCell.swift */,
 				4F964621211C11AB00114B03 /* MapViewController.swift */,
 				4FEA633521216FD800E33AE9 /* MeasurementTableViewController.swift */,
+				4FBC7DEA212430430029DB7B /* MeasurementEditViewController.swift */,
 			);
 			path = DepthMeasurements;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				4F964651211C31B000114B03 /* MeasurementsModel.swift in Sources */,
 				4F964622211C11AB00114B03 /* MapViewController.swift in Sources */,
 				4FEA6334212163C400E33AE9 /* MeasurementTableRowTableViewCell.swift in Sources */,
+				4FBC7DEB212430430029DB7B /* MeasurementEditViewController.swift in Sources */,
 				4F964620211C11AB00114B03 /* AppDelegate.swift in Sources */,
 				4FEA633621216FD800E33AE9 /* MeasurementTableViewController.swift in Sources */,
 				4FC817A9211C5D1A006B6ECD /* PagesViewController.swift in Sources */,

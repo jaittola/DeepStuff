@@ -93,14 +93,28 @@ class MeasurementTableViewController: UITableViewController, MeasurementsDelegat
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        switch (segue.identifier ?? "") {
+        case "ShowDetail":
+            guard let dest = segue.destination as? MeasurementEditViewController else {
+                fatalError("Unexpected destionation for measurement editing")
+            }
+            guard let senderCell = sender as? UITableViewCell else {
+                fatalError("Bad sender, expected table view cell")
+            }
+            if let row = tableView.indexPath(for: senderCell)?.row,
+                let measurement = model?.values[row] {
+                dest.measurement = measurement
+            }
+        default:
+            print("Unknown segue identifier \(segue.identifier ?? "") in measurement detail navigation")
+        }
     }
-    */
 
 }

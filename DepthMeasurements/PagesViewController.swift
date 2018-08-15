@@ -46,7 +46,7 @@ class PagesViewController: UIPageViewController, UIPageViewControllerDataSource 
     internal lazy var pages: [UIViewController] = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return [ storyboard.instantiateViewController(withIdentifier: "MapViewController") ,
-                 storyboard.instantiateViewController(withIdentifier: "MeasurementTableViewController")]
+                 storyboard.instantiateViewController(withIdentifier: "MeasurementNavigation")]
     }()
 }
 
