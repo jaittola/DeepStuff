@@ -15,6 +15,9 @@ class MeasurementEditViewController: UIViewController {
     @IBOutlet weak var longitude: UILabel!
     @IBOutlet weak var depth: UITextField!
 
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let m = measurement {
@@ -30,19 +33,19 @@ class MeasurementEditViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+/*
+        switch (sender) {
+        case backButton:
 
-    @IBAction func saveClicked(_ sender: UIBarButtonItem) {
-        print("Save clicked for \(measurement?.toString() ?? "")")
+        }
+*/
     }
 }

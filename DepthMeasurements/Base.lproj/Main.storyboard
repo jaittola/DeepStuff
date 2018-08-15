@@ -281,20 +281,27 @@
                         <viewLayoutGuide key="safeArea" id="X0l-V2-2oR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit" id="Lue-9c-j3C">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="SMI-Vs-Quf"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="SMI-Vs-Quf">
+                            <connections>
+                                <segue destination="RQ7-ol-cii" kind="unwind" unwindAction="unwindToMeasurementListWithSender:" id="ueY-HO-zYI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="9eG-WR-PZM">
                             <connections>
-                                <action selector="saveClicked:" destination="cMa-bm-0dg" id="mKE-SL-K43"/>
+                                <segue destination="RQ7-ol-cii" kind="unwind" unwindAction="unwindToMeasurementListWithSender:" id="FVk-t1-aPQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="SMI-Vs-Quf" id="15S-Cw-lOW"/>
                         <outlet property="depth" destination="Nqb-JV-w2T" id="bWV-Id-64l"/>
                         <outlet property="latitude" destination="6cu-Ge-SRI" id="Met-je-BDH"/>
                         <outlet property="longitude" destination="r0P-w7-7rz" id="yLV-rg-tUC"/>
+                        <outlet property="saveButton" destination="9eG-WR-PZM" id="NwI-NH-GEa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGe-th-hcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RQ7-ol-cii" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4060" y="27"/>
         </scene>
@@ -340,6 +347,6 @@
         <image name="currentPositionActive" width="42" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eYa-hk-0ul"/>
+        <segue reference="U7f-Fh-ezs"/>
     </inferredMetricsTieBreakers>
 </document>
